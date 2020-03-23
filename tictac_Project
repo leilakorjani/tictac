@@ -1,0 +1,122 @@
+player1=input('Do you want to be X or O? ' )
+player=['X','O']
+player.remove(player1)
+player2=player[0]
+print('Player 1 starts the game')
+starting=input('Are you ready to start? Enter yes or no:')
+patern1={1:' 1 ', 2:' 2 ', 3:' 3 ', 4:' 4 ', 5:' 5 ', 6:' 6 ', 7:' 7 ', 8:' 8 ', 9:' 9 '}
+patern2={'a':'|','b':'-----------'}
+def printtable():
+    print(patern1[1]+patern2['a']+patern1[2]+patern2['a']+patern1[3])
+    print(patern2['b'])
+    print(patern1[4]+patern2['a']+patern1[5]+patern2['a']+patern1[6])
+    print(patern2['b'])
+    print(patern1[7]+patern2['a']+patern1[8]+patern2['a']+patern1[9])
+if starting=='yes':
+    printtable()
+n=2
+while n<=10:    
+    step1= int(input('Player1: choose your position: (1-9) '))
+    if player1=='X' or player2=='X':
+        xvalue=' '+ player1 +' '
+        patern1[step1]=xvalue
+        printtable()
+        if step1 in [2,5,8]:
+            if patern1[step1-1]==xvalue and patern1[step1+1]==xvalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step1 in [1,4,7]:
+            if patern1[step1+1]==xvalue and patern1[step1+2]==xvalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step1 in [3,6,9]:
+            if patern1[step1-1]==xvalue and patern1[step1-2]==xvalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step1 in [1,2,3]:
+            if patern1[step1+3]==xvalue and patern1[step1+6]==xvalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step1 in [4,5,6]:
+            if patern1[step1-3]==xvalue and patern1[step1+3]==xvalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step1 in [7,8,9]:
+            if patern1[step1-3]==xvalue and patern1[step1-6]==xvalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step1 in [1]:
+            if (patern1[step1+4]==xvalue and patern1[step1+8]==xvalue):
+                print('Congradulation! you have won the game.')
+                break
+        if step1 in [3]:
+            if (patern1[step1+2]==xvalue and patern1[step1+4]==xvalue):
+                print('Congradulation! you have won the game.')
+                break
+        if step1 in [7]:
+            if (patern1[step1-2]==xvalue and patern1[step1-4]==xvalue):
+                print('Congradulation! you have won the game.')
+                break
+        if step1 in [9]:
+            if (patern1[step1-4]==xvalue and patern1[step1-8]==xvalue):
+                print('Congradulation! you have won the game.')
+                break
+        if step1 in [5]:
+            if (patern1[step1-4]==xvalue and patern1[step1+4]==xvalue) or (patern1[step1-2]==xvalue and patern1[step1+2]==xvalue):
+                print('Congradulation! you have won the game.')
+                break
+                
+    if n==10:
+        break
+    step2= int(input('Player2: choose your position: (1-9) '))
+    if player2=='O' or player1=='O':
+        ovalue=' '+ player2 +' '
+        patern1[step2]=ovalue
+        printtable()
+        if step2 in [2,5,8]:
+            if patern1[step2-1]==ovalue and patern1[step2+1]==ovalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step2 in [1,4,7]:
+            if patern1[step2+1]==ovalue and patern1[step2+2]==ovalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step2 in [3,6,9]:
+            if patern1[step2-1]==ovalue and patern1[step2-2]==ovalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step2 in [1,2,3]:
+            if patern1[step2+3]==ovalue and patern1[step2+6]==ovalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step2 in [4,5,6]:
+            if patern1[step2-3]==ovalue and patern1[step2+3]==ovalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step2 in [7,8,9]:
+            if patern1[step2-3]==ovalue and patern1[step2-6]==ovalue:
+                print('Congradulation! you have won the game.')
+                break
+        if step2 in [1]:
+            if (patern1[step2+4]==ovalue and patern1[step2+8]==ovalue):
+                print('Congradulation! you have won the game.')
+                break
+        if step2 in [3]:
+            if (patern1[step2+2]==ovalue and patern1[step2+4]==ovalue):
+                print('Congradulation! you have won the game.')
+                break
+        if step2 in [7]:
+            if (patern1[step2-2]==ovalue and patern1[step2-4]==ovalue):
+                print('Congradulation! you have won the game.')
+                break
+        if step2 in [9]:
+            if (patern1[step2-4]==ovalue and patern1[step2-8]==ovalue):
+                print('Congradulation! you have won the game.')
+                break
+        if step2 in [5]:
+            if (patern1[step2-4]==ovalue and patern1[step2+4]==ovalue) or (patern1[step2-2]==ovalue and patern1[step2+2]==ovalue):
+                print('Congradulation! you have won the game.')
+                break
+                
+    n+=2
+print('tie')
